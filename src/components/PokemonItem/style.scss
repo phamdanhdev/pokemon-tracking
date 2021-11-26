@@ -1,0 +1,42 @@
+._pokemon {
+  background-color: #f5f5f5;
+  border-radius: 20px;
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 10rem;
+  ._img-container {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    text-align: center;
+    img {
+      margin-top: 10px;
+      max-width: 90%;
+    }
+  }
+  ._info {
+    margin-top: 20px;
+    ._number {
+      text-align: center;
+      p {
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        font-size: 0.8em;
+        padding: 5px 10px;
+        display: inline-block;
+        margin: 0;
+      }
+    }
+    ._name {
+      margin: 10px 0 5px;
+      letter-spacing: 1px;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    // ._type {
+    // }
+  }
+}

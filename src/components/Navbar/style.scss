@@ -1,0 +1,24 @@
+._navbar {
+  width: 100%;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: #ffffff66;
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  align-items: center;
+  padding: 0 40px;
+  h1 {
+    margin: 0;
+    color: white;
+  }
+  ._favorite {
+    transition: 0.3s ease-in-out;
+    &:hover {
+      transform: scale3d(1.2, 1.2, 1.2);
+    }
+    .ant-badge-count {
+      color: black;
+    }
+  }
+}

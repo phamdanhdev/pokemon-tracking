@@ -1,0 +1,88 @@
+._homePage {
+  display: flex;
+  height: calc(100% - 70px);
+  ._advertise-container {
+    height: calc(100vh - 70px);
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ._advertise {
+      position: relative;
+      ._pokemon {
+        user-select: none;
+        background-color: #f5f5f5;
+        border-radius: 20px;
+        box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+        margin: 10px;
+        padding: 20px;
+        text-align: center;
+        width: 10rem;
+        ._img-container {
+          background-color: rgba(255, 255, 255, 0.6);
+          border-radius: 50%;
+          width: 120px;
+          height: 120px;
+          text-align: center;
+          img {
+            margin-top: 10px;
+            max-width: 90%;
+          }
+        }
+        ._info {
+          margin-top: 20px;
+          ._number {
+            text-align: center;
+            p {
+              background-color: rgba(0, 0, 0, 0.1);
+              border-radius: 10px;
+              font-size: 0.8em;
+              padding: 5px 10px;
+              display: inline-block;
+              margin: 0;
+            }
+          }
+          ._name {
+            margin: 10px 0 5px;
+            letter-spacing: 1px;
+            font-weight: 700;
+            font-size: 1.2rem;
+          }
+        }
+      }
+      ._p0 {
+        left: -11rem;
+        top: -15rem;
+        transform: rotate(358deg);
+        position: absolute;
+        width: 25rem;
+        h2 {
+          color: white;
+          font-size: 2rem;
+          font-weight: 700;
+        }
+      }
+      ._p1 {
+        position: absolute;
+        left: -15rem;
+        top: -11rem;
+        z-index: 998;
+        transform: rotate(350deg);
+      }
+      ._p2 {
+        position: absolute;
+        left: -6rem;
+        top: -3rem;
+        z-index: 999;
+        transform: rotate(2deg);
+      }
+      ._p3 {
+        position: absolute;
+        left: 3rem;
+        top: -8rem;
+        z-index: 998;
+        transform: rotate(10deg);
+      }
+    }
+  }
+}
