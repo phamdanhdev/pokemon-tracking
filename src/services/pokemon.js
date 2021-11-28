@@ -4,7 +4,6 @@ import {
   debounceTime,
   distinctUntilChanged,
   from,
-  of,
   switchMap,
 } from "rxjs";
 import { filter } from "rxjs/operators";
@@ -15,20 +14,23 @@ export const loadingSubject = new BehaviorSubject(0);
 
 export const pokemonSubject = new BehaviorSubject({});
 
-export const getPokemonByUrl = async (url) => {
-  const { results: pokemon } = await fetch(url).then((res) => res.json());
-  return pokemon[0];
+export const getPokemonById = async (id) => {
+  if (typeof id === "object") {
+    return;
+  }
+  const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`).then(
+    (res) => res.json()
+  );
+  return pokemon;
 };
 
 export const getPokemonObservable = pokemonSubject.pipe(
-  distinctUntilChanged(),
-  switchMap((val) => of(getPokemonByUrl(val)))
+  switchMap((val) => from(getPokemonById(val)))
 );
 
 export const usePokemonFetcher = (setter) => {
   useEffect(() => {
     let subscription = getPokemonObservable.subscribe((result) => {
-      loadingSubject.next(0);
       setter(result);
     });
     return () => {

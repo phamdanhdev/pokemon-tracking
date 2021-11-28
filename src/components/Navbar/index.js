@@ -13,7 +13,7 @@ export default function Navbar() {
         </div>
       </Link>
       <div className="_favorite">
-        <Link to="/favorites">
+        <Link to="/">
           <Badge count={0} showZero color="#ffffff">
             <Avatar
               style={{ backgroundColor: "#a500a5" }}

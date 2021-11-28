@@ -29,7 +29,7 @@ export default function Searchbox() {
     return result.map((pokemon) => {
       const pokemonId = pokemon.url.slice(0, -1).split("/").pop();
       return (
-        <Link to={`/pokemon/?id=${pokemonId}`} key={pokemon.name}>
+        <Link to={`/pokemon/${pokemonId}`} key={pokemon.name}>
           <div className="_pokemonItem">
             <p>{pokemon.name}</p>
           </div>

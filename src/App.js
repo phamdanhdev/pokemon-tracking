@@ -12,7 +12,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<AppHomePage />} />
-          <Route path="/pokemon" element={<AppDetailPage />} />
+          <Route path="/pokemon/:id" element={<AppDetailPage />} />
           <Route path="/favorites" element={<AppFavoritesPage />} />
         </Routes>
       </div>
