@@ -3,6 +3,7 @@ import "./style.scss";
 import grovyleImg from "../../assets/img/253-grovyle-grass.png";
 import pikachuImg from "../../assets/img/25-pikachu-electric.png";
 import charizardImg from "../../assets/img/6-charizard-fire.png";
+import Searchbox from "../../components/Searchbox";
 
 export default function AppHomePage() {
   return (
@@ -50,7 +51,9 @@ export default function AppHomePage() {
           </div>
         </div>
       </div>
-      <div></div>
+      <div className="_searchBox-container">
+        <Searchbox />
+      </div>
     </div>
   );
 }
