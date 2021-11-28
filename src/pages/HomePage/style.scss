@@ -93,3 +93,61 @@
     align-items: center;
   }
 }
+
+@media only screen and (max-width: 991px) {
+  ._homePage {
+    display: block;
+    ._advertise-container {
+      width: 100%;
+    }
+    ._searchBox-container {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  ._navbar {
+    padding: 0 15px !important;
+  }
+  ._homePage {
+    ._advertise-container {
+      ._advertise {
+        ._p0 {
+          h2 {
+            font-size: 1.2rem;
+          }
+          left: -7rem;
+          width: 15rem;
+        }
+        ._p1 {
+          left: -10rem;
+        }
+        ._p2 {
+          left: -4rem;
+        }
+        ._p3 {
+          left: 0rem;
+        }
+        ._pokemon {
+          width: 8rem;
+          border-radius: 15px;
+          padding: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          ._img-container {
+            width: 90px;
+            height: 90px;
+          }
+          ._info {
+            margin-top: 10px;
+            ._name {
+              margin: 2px 0 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,8 @@
 ._navbar {
+  position: sticky;
+  position: -webkit-sticky;
+  z-index: 1000;
+  top: 0;
   width: 100%;
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Spin } from "antd";
 import {
   searchSubject,
-  usePokemonFetcher,
+  usePokemonListFetcher,
   loadingSubject,
   useLoadingStatus,
 } from "../../services/pokemon";
@@ -14,7 +14,7 @@ export default function Searchbox() {
   const [result, setResult] = useState([]);
   const [isLoading, setIsLoading] = useState(0);
 
-  usePokemonFetcher(setResult);
+  usePokemonListFetcher(setResult);
 
   useLoadingStatus(setIsLoading);
 
@@ -26,11 +26,10 @@ export default function Searchbox() {
   };
 
   const renderPokemonList = () => {
-    result.map((pokemon) => {
-      //Get pokemon's id
+    return result.map((pokemon) => {
       const pokemonId = pokemon.url.slice(0, -1).split("/").pop();
       return (
-        <Link to={`/pokemon/?id=${pokemonId}`}>
+        <Link to={`/pokemon/?id=${pokemonId}`} key={pokemon.name}>
           <div className="_pokemonItem">
             <p>{pokemon.name}</p>
           </div>
@@ -54,9 +53,7 @@ export default function Searchbox() {
           <Spin size="large" tip="Finding pokemon . . ." />
         </div>
       ) : (
-        <div className="_searchResult">
-          <div>{renderPokemonList()}</div>
-        </div>
+        <div className="_searchResult">{renderPokemonList()}</div>
       )}
     </div>
   );

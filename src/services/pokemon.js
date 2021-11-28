@@ -4,6 +4,7 @@ import {
   debounceTime,
   distinctUntilChanged,
   from,
+  of,
   switchMap,
 } from "rxjs";
 import { filter } from "rxjs/operators";
@@ -11,6 +12,30 @@ import { filter } from "rxjs/operators";
 export const searchSubject = new BehaviorSubject("");
 
 export const loadingSubject = new BehaviorSubject(0);
+
+export const pokemonSubject = new BehaviorSubject({});
+
+export const getPokemonByUrl = async (url) => {
+  const { results: pokemon } = await fetch(url).then((res) => res.json());
+  return pokemon[0];
+};
+
+export const getPokemonObservable = pokemonSubject.pipe(
+  distinctUntilChanged(),
+  switchMap((val) => of(getPokemonByUrl(val)))
+);
+
+export const usePokemonFetcher = (setter) => {
+  useEffect(() => {
+    let subscription = getPokemonObservable.subscribe((result) => {
+      loadingSubject.next(0);
+      setter(result);
+    });
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, [setter]);
+};
 
 export const getPokemonByName = async (name) => {
   const { results: pokemonList } = await fetch(
@@ -26,11 +51,11 @@ let searchResultObservable = searchSubject.pipe(
   switchMap((val) => from(getPokemonByName(val)))
 );
 
-export const usePokemonFetcher = (setter) => {
+export const usePokemonListFetcher = (setter) => {
   useEffect(() => {
     let subscription = searchResultObservable.subscribe((result) => {
       loadingSubject.next(0);
-      setter(result);
+      setter(result.slice(0, 10));
     });
     return () => {
       subscription.unsubscribe();
