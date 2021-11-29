@@ -33,7 +33,7 @@ export default function PokemonInfo({ pokemon }) {
       </div>
       <div className="_abilities">Abilities: {abilities}</div>
       <div className="_types">Types: {types}</div>
-      <div className="_backHome">
+      <div className="_btn">
         <Link to={"/"}>Back to find</Link>
       </div>
     </div>

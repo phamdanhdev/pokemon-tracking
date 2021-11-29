@@ -18,6 +18,7 @@ export const getPokemonById = async (id) => {
   if (typeof id === "object") {
     return;
   }
+  loadingSubject.next(1);
   const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`).then(
     (res) => res.json()
   );
@@ -31,6 +32,7 @@ export const getPokemonObservable = pokemonSubject.pipe(
 export const usePokemonFetcher = (setter) => {
   useEffect(() => {
     let subscription = getPokemonObservable.subscribe((result) => {
+      loadingSubject.next(0);
       setter(result);
     });
     return () => {
